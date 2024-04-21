@@ -13,4 +13,12 @@ date: 20/04/2024
 
    Ainsi, le fichier synthetic.csv comporte 14 attributs (Attr_A à Attr_N) et une classe (Class), ce qui donne un total de 15 attributs au total.
 
-2.
+2. Le nombre de classe différente dans les données est : 4
+3. Voici une statistique simplifiée de nos données :
+
+   | Classe | Nombre d'instances |
+   | :----: | :----------------: |
+   |   0    |        674         |
+   |   1    |        908         |
+   |   2    |        472         |
+   |   3    |        244         |
