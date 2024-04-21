@@ -22,3 +22,8 @@ date: 20/04/2024
    |   1    |        908         |
    |   2    |        472         |
    |   3    |        244         |
+
+4. Non, si on observe le schéma 1 on voit que les données ne le sont pas.
+   De plus si l'on choisit de les ranger par classe , on peut voir clairement que ce n'est pas divisible linéairement à l'état brut.
+
+   ![Non lineaire independant](./lineairement_independant.png "Schema 1")
