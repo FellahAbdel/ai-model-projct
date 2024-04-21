@@ -58,3 +58,58 @@ X_train, X_test, y_train, y_test = train_test_split(data.drop(columns=['label_co
 ### Conclusion
 
 Une fois que vous avez exploré et préparé vos données, vous serez mieux équipé pour aborder les étapes suivantes du projet, qui impliquent la mise en œuvre et l'évaluation des modèles. Assurez-vous que chaque étape de préparation est correctement documentée et justifiée dans votre compte-rendu, comme le demande le projet.
+
+### Préparation partie 2
+
+### 2.1 From scratch arbre de décision
+
+Pour l'exercice 2.1 concernant l'implémentation d'un arbre de décision à partir de zéro, voici les étapes générales et les concepts clés que vous devrez suivre et comprendre. Cet exercice vous permettra de développer une compréhension approfondie du fonctionnement interne des arbres de décision, notamment en termes de sélection des caractéristiques et de partitionnement des données.
+
+### Étape 1 : Comprendre le concept d'un arbre de décision
+
+Les arbres de décision sont des modèles de classification (ou de régression) qui travaillent en divisant répétitivement l'espace de caractéristiques en segments plus petits et plus homogènes. Cette division est réalisée en utilisant des "splits" sur les valeurs des caractéristiques. Chaque division tente de maximiser l'homogénéité (ou de minimiser l'hétérogénéité) des cibles dans les sous-groupes résultants.
+
+### Étape 2 : Calcul de l'entropie et du gain d'information
+
+1. **Entropie** : Une mesure de l'impureté ou de l'incertitude dans un groupe de données. L'entropie est maximale lorsque les instances dans le groupe sont parfaitement divisées entre toutes les classes possibles, et elle est minimale (zéro) lorsque toutes les instances dans le groupe appartiennent à une seule classe. La formule pour l'entropie \( H(S) \) d'un set \( S \) est :
+
+   \[
+   H(S) = -\sum\_{i=1}^{n} p_i \log_2(p_i)
+   \]
+
+   où \( p_i \) est la proportion de la classe \( i \) dans le set.
+
+2. **Gain d'information** : Mesure la réduction de l'entropie après que le dataset est divisé sur un attribut. Il est calculé comme la différence entre l'entropie avant le split et la somme pondérée des entropies de chaque sous-groupe après le split.
+
+   \[
+   IG(S, A) = H(S) - \sum\_{t \in T} \frac{|S_t|}{|S|} H(S_t)
+   \]
+
+   où \( T \) représente les sous-ensembles créés à partir du split sur l'attribut \( A \), \( S_t \) est un sous-ensemble, et \( |S| \) est le nombre d'éléments dans \( S \).
+
+### Étape 3 : Implémentation de l'algorithme
+
+1. **Choisir le meilleur attribut pour le split** :
+
+   - Pour chaque attribut, calculez le gain d'information.
+   - Choisissez l'attribut qui offre le gain d'information maximal.
+
+2. **Répéter le processus pour chaque sous-ensemble créé par le split** :
+
+   - Appliquez récursivement l'arbre de décision à chaque sous-ensemble.
+   - Arrêtez la récursion lorsque vous atteignez un critère d'arrêt (par exemple, lorsque toutes les instances dans un sous-ensemble appartiennent à une seule classe, ou lorsque la profondeur maximale de l'arbre est atteinte).
+
+3. **Gestion des attributs continus** :
+
+   - Comme mentionné dans votre projet, utilisez des quartiles pour discrétiser les attributs continus. Divisez les valeurs de chaque attribut en quartiles et testez les points de division à chaque quartile pour voir quel quartile donne le meilleur gain d'information.
+
+4. **Validation du modèle** :
+   - Après avoir construit l'arbre, testez-le sur un ensemble de données de test pour évaluer sa performance.
+   - Enregistrez les prédictions pour l'analyse future.
+
+### Étape 4 : Tester et évaluer l'arbre de décision
+
+- Utilisez l'ensemble de données de test pour évaluer la précision, la précision, le rappel, et le score F1 de votre arbre de décision.
+- Analysez comment les différentes profondeurs d'arbres affectent la performance et choisissez le modèle optimal basé sur vos critères de performance.
+
+Cette approche vous donnera une compréhension approfondie de la construction et du fonctionnement des arbres de décision, vous permettant non seulement de construire un modèle à partir de zéro mais aussi de comprendre comment optimiser ses performances.
