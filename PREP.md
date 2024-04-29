@@ -113,3 +113,149 @@ Les arbres de décision sont des modèles de classification (ou de régression) 
 - Analysez comment les différentes profondeurs d'arbres affectent la performance et choisissez le modèle optimal basé sur vos critères de performance.
 
 Cette approche vous donnera une compréhension approfondie de la construction et du fonctionnement des arbres de décision, vous permettant non seulement de construire un modèle à partir de zéro mais aussi de comprendre comment optimiser ses performances.
+
+- parcours tous les attributs
+- split aux différentes valeurs des quantiles
+- calcule les entropies des sous-ensembles
+- calcule chaque gain d'information
+- renvoie pour chaque attribut son meilleur quantile n constituant la meilleure valeur de split.
+
+# def calculate_information_gain(data, attribute, target_attribute):
+
+# # Tri des données selon l'attribut
+
+# sorted_data = data.sort_values(by=attribute)
+
+# unique_values = sorted_data[attribute].unique()
+
+# # Entropie initiale de l'ensemble de données
+
+# total_entropy = calculate_entropy(data[target_attribute])
+
+# # Initialisation des variables pour capturer le meilleur gain et la meilleure valeur de split
+
+# best_gain = 0
+
+# best_split_value = None
+
+# best_partitions = None
+
+# # Itération sur toutes les valeurs uniques de l'attribut, à l'exception de la dernière
+
+# for i in range(len(unique_values) - 1):
+
+# # Calcul de la valeur de split comme la moyenne de deux valeurs successives
+
+# split_value = (unique_values[i] + unique_values[i + 1]) / 2
+
+# # Création de partitions basées sur la valeur de split
+
+# partition1 = data[data[attribute] < split_value]
+
+# partition2 = data[data[attribute] >= split_value]
+
+# # Calcul de l'entropie pour chaque partition
+
+# entropy1 = calculate_entropy(partition1[target_attribute])
+
+# entropy2 = calculate_entropy(partition2[target_attribute])
+
+# # Calcul du gain d'information
+
+# weight1 = len(partition1) / len(data)
+
+# weight2 = len(partition2) / len(data)
+
+# gain = total_entropy - (weight1 _ entropy1 + weight2 _ entropy2)
+
+# # Si ce gain est meilleur que le précédent, le stocker ainsi que la valeur de split
+
+# if gain > best_gain:
+
+# best_gain = gain
+
+# best_split_value = split_value
+
+# best_partitions = (partition1, partition2)
+
+# return attribute, best_gain, best_split_value, best_partitions
+
+# # Utilisation de la fonction sur le dataframe
+
+# # Notez que ceci doit être fait pour chaque attribut, ici on montre un exemple pour 'Attr_A'
+
+# attribute, gain, split_value, partitions = calculate_information_gain(data, 'Attr_A', 'Class')
+
+# print(f"Best split for '{attribute}' is at value {split_value} with gain {gain}")
+
+# # Note: Cette fonction renvoie des informations pour un seul attribut. Vous devrez boucler sur tous les attributs pour les traiter tous.
+
+# def calculate_information_gain(data, attribute, target_attribute):
+
+# # Tri des données selon l'attribut
+
+# sorted_data = data.sort_values(by=attribute)
+
+# unique_values = sorted_data[attribute].unique()
+
+# # Entropie initiale de l'ensemble de données
+
+# total_entropy = calculate_entropy(data[target_attribute])
+
+# # Initialisation des variables pour capturer le meilleur gain et la meilleure valeur de split
+
+# best_gain = 0
+
+# best_split_value = None
+
+# best_partitions = None
+
+# # Itération sur toutes les valeurs uniques de l'attribut, à l'exception de la dernière
+
+# for i in range(len(unique_values) - 1):
+
+# # Calcul de la valeur de split comme la moyenne de deux valeurs successives
+
+# split_value = (unique_values[i] + unique_values[i + 1]) / 2
+
+# # Création de partitions basées sur la valeur de split
+
+# partition1 = data[data[attribute] < split_value]
+
+# partition2 = data[data[attribute] >= split_value]
+
+# # Calcul de l'entropie pour chaque partition
+
+# entropy1 = calculate_entropy(partition1[target_attribute])
+
+# entropy2 = calculate_entropy(partition2[target_attribute])
+
+# # Calcul du gain d'information
+
+# weight1 = len(partition1) / len(data)
+
+# weight2 = len(partition2) / len(data)
+
+# gain = total_entropy - (weight1 _ entropy1 + weight2 _ entropy2)
+
+# # Si ce gain est meilleur que le précédent, le stocker ainsi que la valeur de split
+
+# if gain > best_gain:
+
+# best_gain = gain
+
+# best_split_value = split_value
+
+# best_partitions = (partition1, partition2)
+
+# return attribute, best_gain, best_split_value, best_partitions
+
+# # Utilisation de la fonction sur le dataframe
+
+# # Notez que ceci doit être fait pour chaque attribut, ici on montre un exemple pour 'Attr_A'
+
+# attribute, gain, split_value, partitions = calculate_information_gain(data, 'Attr_A', 'Class')
+
+# print(f"Best split for '{attribute}' is at value {split_value} with gain {gain}")
+
+# # Note: Cette fonction renvoie des informations pour un seul attribut. Vous devrez boucler sur tous les attributs pour les traiter tous.
