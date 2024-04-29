@@ -28,11 +28,34 @@ date: 20/04/2024
 
    ![Non lineaire independant](./lineairement_independant.png "Schema 1")
 
-5. 
-    - Pour l'arbre de décision
-    Puisque les variables sont déjà numériques et que la colonne Class est utilisée comme étiquette (et non comme une fonctionnalité), aucun encodage One-hot n'est nécessaire pour les fonctionnalités. Si Class était utilisée comme une caractéristique d'entrée plutôt que comme une étiquette, et si elle comprenait de nombreuses catégories différentes, l'encodage One-hot pourrait être envisagé pour éviter de donner un ordre artificiel entre les catégories.
-    Pour un modèle basé sur un arbre de décision, la normalisation des données n'est généralement pas nécessaire. Les arbres de décision ne sont pas sensibles à la magnitude des valeurs des attributs de la même manière que le sont les modèles basés sur des calculs de distance ou des modèles linéaires. Voici pourquoi :
+5. - Pour l'arbre de décision
+     Puisque les variables sont déjà numériques et que la colonne Class est utilisée comme étiquette (et non comme une fonctionnalité), aucun encodage One-hot n'est nécessaire pour les fonctionnalités. Si Class était utilisée comme une caractéristique d'entrée plutôt que comme une étiquette, et si elle comprenait de nombreuses catégories différentes, l'encodage One-hot pourrait être envisagé pour éviter de donner un ordre artificiel entre les catégories.
+     Pour un modèle basé sur un arbre de décision, la normalisation des données n'est généralement pas nécessaire. Les arbres de décision ne sont pas sensibles à la magnitude des valeurs des attributs de la même manière que le sont les modèles basés sur des calculs de distance ou des modèles linéaires. Voici pourquoi :
 
-    - Pour les réseaux de neurones 
+   - Pour les réseaux de neurones
 
 6. Séparer les données en jeu d'entraînement et jeu de test permet d'évaluer la performance du modèle de manière impartiale, de détecter le surapprentissage et d'obtenir des prédictions plus précises sur des données nouvelles.
+
+# Mise en oeuvre des modèles
+
+Les _quartiles_ sont des valeurs qui divisent les données en quatre parties égales lorsqu'elles sont triées dans l'ordre croissant. Plus précisément, les quartiles sont les valeurs situées à 25 %, 50 % et 75 % de l'ensemble de données ordonné. Voici les trois quartiles couramment utilisés :
+
+- **Premier quartile (Q1)** : également appelé le quartile inférieur, il est la valeur qui se situe au 25 % inférieur des données ordonnées.
+- **Deuxième quartile (Q2)** : également appelé la médiane, c'est la valeur qui divise les données en deux moitiés égales (50 %).
+- **Troisième quartile (Q3)** : également appelé le quartile supérieur, il est la valeur qui se situe au 75 % des données ordonnées.
+
+Les quartiles sont des mesures de tendance centrale qui fournissent des informations sur la dispersion et la répartition des données.
+
+Pour les calculer nous avons utilisé la méthode `quantile()` sur la série des données d'un attribut spécifique. Pour donner un exemple sur l'attribut A.
+
+```python
+attribute = 'Attr_A'
+
+# Calculer les quartiles pour l'attribut choisi
+quartiles = data[attribute].quantile([0.25, 0.5, 0.75])
+
+# Afficher les quartiles
+print(f"Quartile 1 (Q1) de l'attribut '{attribute}': {quartiles[0.25]}")
+print(f"Médiane (Q2) de l'attribut '{attribute}': {quartiles[0.5]}")
+print(f"Quartile 3 (Q3) de l'attribut '{attribute}': {quartiles[0.75]}")
+```
