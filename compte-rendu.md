@@ -6,14 +6,12 @@ date: 20/04/2024
 
 # 1 - Préparation des données
 
-1. Ces données comporte 15 attributs au total comme le montre `data.shape[1]`.
+1. Ces données comporte 14 attributs au total comme le montre `data.shape[1]`.
 
-   - Les en-têtes de colonnes de la première ligne du fichier listent 14 attributs de Attr_A à Attr_N et une colonne supplémentaire appelée Class.
-   - Chaque ligne de données contient 15 valeurs, une pour chaque attribut et une dernière pour la classe de l'enregistrement.
-
-   Ainsi, le fichier synthetic.csv comporte 14 attributs (Attr_A à Attr_N) et une classe (Class), ce qui donne un total de 15 attributs au total.
+   - Les en-têtes de colonnes de la première ligne du fichier listent 14 attributs de Attr_A à Attr_N et un label Class.
 
 2. Le nombre de classe différente dans les données est : 4
+
 3. Voici une statistique simplifiée de nos données :
 
    | Classe | Nombre d'instances |
@@ -32,7 +30,7 @@ date: 20/04/2024
      Puisque les variables sont déjà numériques et que la colonne Class est utilisée comme étiquette (et non comme une fonctionnalité), aucun encodage One-hot n'est nécessaire pour les fonctionnalités. Si Class était utilisée comme une caractéristique d'entrée plutôt que comme une étiquette, et si elle comprenait de nombreuses catégories différentes, l'encodage One-hot pourrait être envisagé pour éviter de donner un ordre artificiel entre les catégories.
      Pour un modèle basé sur un arbre de décision, la normalisation des données n'est généralement pas nécessaire. Les arbres de décision ne sont pas sensibles à la magnitude des valeurs des attributs de la même manière que le sont les modèles basés sur des calculs de distance ou des modèles linéaires. Voici pourquoi :
 
-   - Pour les réseaux de neurones
+   - Pour les réseaux de neurones : l'encodage one-hot est nécéssaire de manière à dissoier les sorties de classe
 
 6. Séparer les données en jeu d'entraînement et jeu de test permet d'évaluer la performance du modèle de manière impartiale, de détecter le surapprentissage et d'obtenir des prédictions plus précises sur des données nouvelles.
 
@@ -59,3 +57,21 @@ print(f"Quartile 1 (Q1) de l'attribut '{attribute}': {quartiles[0.25]}")
 print(f"Médiane (Q2) de l'attribut '{attribute}': {quartiles[0.5]}")
 print(f"Quartile 3 (Q3) de l'attribut '{attribute}': {quartiles[0.75]}")
 ```
+
+# 3. Analyse des modèles
+
+| Classes   | C1     | C2     | C3     | C4     |
+| --------- | ------ | ------ | ------ | ------ |
+| Accuracy  | valeur | valeur | valeur | valeur |
+| Precision | valeur | valeur | valeur | valeur |
+| Recall    | valeur | valeur | valeur | valeur |
+| F1-score  | valeur | valeur | valeur | valeur |
+
+|        | Predicted label 0 | Predicted label 1 | Predicted label 2 | Predicted label 3 |
+| ------ | ----------------- | ----------------- | ----------------- | ----------------- |
+| True 0 |                   |                   |                   |                   |
+| True 1 |                   |                   |                   |                   |
+| True 2 |                   |                   |                   |                   |
+| True 3 |                   |                   |                   |                   |
+
+# 4. Le meilleur modèle
