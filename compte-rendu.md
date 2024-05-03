@@ -69,9 +69,9 @@ print(f"Quartile 3 (Q3) de l'attribut '{attribute}': {quartiles[0.75]}")
 
 |        | Predicted label 0 | Predicted label 1 | Predicted label 2 | Predicted label 3 |
 | ------ | ----------------- | ----------------- | ----------------- | ----------------- |
-| True 0 | 0                 | 1                 | 2                 | 3                 |
-| True 1 | 1                 | 2                 | 3                 | 0                 |
-| True 2 | 2                 | 3                 | 0                 | 1                 |
-| True 3 | 3                 | 0                 | 1                 | 2                 |
+| True 0 |                   |                   |                   |                   |
+| True 1 |                   |                   |                   |                   |
+| True 2 |                   |                   |                   |                   |
+| True 3 |                   |                   |                   |                   |
 
 # 4. Le meilleur modèle
