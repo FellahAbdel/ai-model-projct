@@ -60,7 +60,7 @@ print(f"Quartile 3 (Q3) de l'attribut '{attribute}': {quartiles[0.75]}")
 
 # 3. Analyse des modèles
 
-Nous avons fait le choix d'utiliser les modèles donées en fichier de test afin de répondre à cette question.
+Nous avons fait le choix d'utiliser les modèles donées en fichier de test afin de répondre à cette question. Ceci est dû au fait que l'on ne soit pas complètement sur de nos données produites. Cependant nous avons bien réussi à obtenir des courbes se rapprochant de ce qui est trouvé dans les résultats donnés.
 
 | Modèle                | Accuracy | Précision C1 | Rappel C1 | F1-score C1 | Précision C2 | Rappel C2 | F1-score C2 | Précision C3 | Rappel C3 | F1-score C3 | Précision C4 | Rappel C4 | F1-score C4 |
 | --------------------- | -------- | ------------ | --------- | ----------- | ------------ | --------- | ----------- | ------------ | --------- | ----------- | ------------ | --------- | ----------- |
