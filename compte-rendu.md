@@ -156,3 +156,12 @@ Nous avons fait le choix d'utiliser les modèles donées en fichier de test afin
 | 3                            | 20  | 10  | 18  | 0   |
 
 # 4. Le meilleur modèle
+
+L'analyse comparative des performances de nos divers modèles révèle que certains réseaux de neurones, notamment les modèles `y_pred_NN_relu_10-8-6` et `y_pred_NN_tanh_10-8-6`, surpassent les arbres de décision (`y_pred_DT4`, `y_pred_DT5`, `y_pred_DT6`) en termes de précision, de rappel, et de score F1. Cette supériorité indique que les réseaux de neurones sont plus aptes à gérer les complexités de notre ensemble de données, qui pourrait intégrer des éléments sophistiqués tels que des diagnostics médicaux ou des anomalies dans des systèmes critiques.
+
+### Raisons de la préférence pour un type de modèle
+
+- **Exactitude et spécificité :** Les modèles de réseaux de neurones, en particulier `y_pred_NN_relu_10-8-6`, ont démontré une capacité supérieure à classer précisément les différentes catégories. Cette caractéristique est essentielle dans des domaines où les erreurs de classification peuvent entraîner des conséquences significatives, comme c'est le cas en diagnostic médical.
+- **Interprétabilité et compréhension :** Malgré la réputation de "boîte noire" des réseaux de neurones, des méthodes de visualisation et d'explication des décisions modélisées peuvent permettre de mieux comprendre ces modèles. Une communication claire des résultats du modèle peut également rendre les décisions plus transparentes pour toutes les parties prenantes, y compris les patients dans un contexte médical.
+
+Ces considérations mettent en lumière l'importance de sélectionner un modèle non seulement pour ses performances techniques, mais aussi pour sa pertinence dans le contexte spécifique de son application.
